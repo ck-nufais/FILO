@@ -55,7 +55,7 @@ class Filo:
       self.dest = self.src
     else:
       self.dest = self.path_check(dest, True)
-    #This function call coordinates the whole program
+    #Function call
     self.Main()
 
   def Main(self):
