@@ -26,10 +26,10 @@ The data dictionary in the main.py file contains the file extensions associated 
 
 ## Options
 
-The program allows for the following options:
+The program allows for the following options while creating an instance of the Filo class.:
 
-- Ignoring certain files from the organization process by specifying them in the ignore parameter while creating an instance of the Filo class.
-- Add custom dictionary in data parameter while creating an instance of the Filo class.
+- Ignoring certain files from the organization process by specifying them in the ignore parameter
+- Add custom dictionary mapped to file extension in data parameter 
 ## Example
 
         from FILO.main import Filo
