@@ -44,19 +44,9 @@ class Filo:
         for key, values in data.items() for value in values
     }
 
-    #This Block checks if source path is valid
-    if path == "":
-      self.src = os.getcwd()
-    else:
-      self.src = self.path_check(path, False)
+    self.path = path
+    self.dest = dest
 
-    #This Block checks if source path is valid
-    if dest == "":
-      self.dest = self.src
-    else:
-      self.dest = self.path_check(dest, True)
-    #Function call
-    self.Main()
 
   def Main(self):
 
@@ -66,24 +56,8 @@ class Filo:
     self.OrganiseDir(self.src)
     print(".....................................\n\n\n")
 
-  def path_check(self, path, bool):
-    if not os.path.exists(path):
-      if bool == False:
-        print("\nPath not found. \nCheck if the passed path exists \n")
-        sys.exit(1)
-      else:
-        print(
-            "the Path you requested is not found ?\n do you want to create Path directory?(y/n)"
-        )
-        choice = input(":")
-        if choice == "y":
-          os.makedirs(path)
-          print("Directory Created")
-        else:
-          print("Directory not created")
-          print("Exixting program")
-          sys.exit(1)
-    return path
+
+
 
   def OrganiseStructure(self, dest, src, filename):
     if not os.path.exists(dest):
@@ -106,13 +80,35 @@ class Filo:
                                  each.path, filename)
         else:
           lists.append(ext)
-    print("\n\nPatterns not found for the following extensions\n")
+    print("\n\nBelow files are not Organized . Either because Patterns not found for the following extensions or They are included in .ignore\n")
     print(*lists)
     print("So they are not organized")
 
 
-test = Filo("/home/runner/FileorganizerDiffe",
-            "/home/runner/FileorganizerDiffe/newbro/test",
-            ignore=["main.py"])
+test = Filo("/home/kaliabu/Desktop/code/py/FILO/Test",
+            "",
+            ignore=["cute.png"])
 
+
+
+path_check()
+
+def path_check(path, bool):
+    if not os.path.exists(path):
+      if bool == False:
+        print("\nPath not found. \nCheck if the passed path exists \n")
+        sys.exit(1)
+      else:
+        print(
+            "the Path you requested is not found ?\n do you want to create Path directory?(y/n)"
+        )
+        choice = input(":")
+        if choice == "y":
+          os.makedirs(path)
+          print("Directory Created")
+        else:
+          print("Directory not created")
+          print("Exixting program")
+          sys.exit(1)
+    return path
 
