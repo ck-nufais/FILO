@@ -36,6 +36,6 @@ The program allows for the following options while creating an instance of the F
         #Ignore the file "example_file.txt" during organization
         #Add custom dictionary with different extensions
         
-        organizer = Filo("/path/to/source_directory", "/path/to/destination_directory", ignore=["important.py"].data={"web":[".html",".htm",".css"],"Python":[".py"]})
+        organizer = Filo("/path/to/source_directory", "/path/to/destination_directory", ignore=["important.py"],data={"web":[".html",".htm",".css"],"Python":[".py"]})
         organizer.OrganiseDir()
 
