@@ -32,11 +32,11 @@ The program allows for the following options:
 - Add custom dictionary in data parameter while creating an instance of the Filo class.
 ## Example
 
-from FILO.main import Filo
-###### #Ignore the file "example_file.txt" during organization
-###### #Add custom dictionary with different extensions
-
-organizer = Filo("/path/to/source_directory", "/path/to/destination_directory", ignore=["example_file.txt"].data={"web":[".html",".htm",".css"],"Python":[".py"]})
-<br>
-organizer.OrganiseDir()
+        from FILO.main import Filo
+        #Ignore the file "example_file.txt" during organization
+        #Add custom dictionary with different extensions
+        
+        organizer = Filo("/path/to/source_directory", "/path/to/destination_directory", ignore=["example_file.txt"].data={"web":[".html",".htm",".css"],"Python":[".py"]})
+        <br>
+        organizer.OrganiseDir()
 
