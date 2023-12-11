@@ -67,6 +67,6 @@ class Filo:
 
 
 
-test = Filo("","",ignore=["cute.png"])
+test = Filo(ignore=["cute.png"])
 test.OrganiseDir()
 
