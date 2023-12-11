@@ -67,7 +67,6 @@ class Filo:
 
 
 
-if __name__ == "__main__":
-    test = Filo()
-    test.OrganiseDir()
+test = Filo(ignore=["cute.png"])
+test.OrganiseDir()
 
