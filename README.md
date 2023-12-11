@@ -29,10 +29,10 @@ The data dictionary in the file_organizer.py file contains the file extensions a
 The program allows for the following options:
 
 - Ignoring certain files from the organization process by specifying them in the ignore parameter while creating an instance of the Filo class.
-
+- Add custom dictionary in data parameter while creating an instance of the Filo class.
 ## Example
 
-from file_organizer import Filo
+from FILO.main import Filo
 ###### #Ignore the file "example_file.txt" during organization
 ###### #Add custom dictionary with different extensions
 
