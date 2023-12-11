@@ -37,6 +37,5 @@ The program allows for the following options while creating an instance of the F
         #Add custom dictionary with different extensions
         
         organizer = Filo("/path/to/source_directory", "/path/to/destination_directory", ignore=["important.py"].data={"web":[".html",".htm",".css"],"Python":[".py"]})
-        <br>
         organizer.OrganiseDir()
 
