@@ -2,5 +2,5 @@ FIlo (file organizing tool)
 <br>
 ....
 <br>
-FIlo is basic file organizing written in python
+FIlo is basic file organizing Tool written in python
 
