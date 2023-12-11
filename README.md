@@ -18,7 +18,7 @@ This Python program is designed to organize files in a directory based on their 
         python file_organizer.py
     
 
-5. After execution, the files in the specified directory will be organized based on their types into separate folders within the destination directory.
+5. After execution, the files in the current directory will be organized based on their types into separate folders.
 
 ## Configuration
 
@@ -33,7 +33,10 @@ The program allows for the following options:
 ## Example
 
 from file_organizer import Filo
+###### #Ignore the file "example_file.txt" during organization
+###### #Add custom dictionary with different extensions
 
-organizer = Filo("/path/to/source_directory", "/path/to/destination_directory", ignore=["example_file.txt"])
+organizer = Filo("/path/to/source_directory", "/path/to/destination_directory", ignore=["example_file.txt"].data={"web":[".html",".htm",".css"],"Python":[".py"]})
+<br>
 organizer.OrganiseDir()
 
