@@ -1,8 +1,5 @@
 import os
-import sys
 import shutil
-
-
 
 data = {
     "Web": [".html5", ".html", ".htm", ".xhtml"],
@@ -34,81 +31,42 @@ data = {
 class Filo:
 
   def __init__(self,
-               path: str = "",
-               dest: str = "",
+               path: str = os.getcwd(),
+               dest: str = os.getcwd(),
                data: dict = data,
                ignore: list = []) -> None:
+
     self.ignore = ignore
     self.computed = {
         value.lower(): key
         for key, values in data.items() for value in values
     }
-
-    self.path = path
+    self.src = path
     self.dest = dest
 
 
-  def Main(self):
-
-    print("Setting destination to " + self.dest)
-    print("\n\n\n.....................................\n")
-    print("Organizing files in directory\n")
-    self.OrganiseDir(self.src)
-    print(".....................................\n\n\n")
-
-
-
-
-  def OrganiseStructure(self, dest, src, filename):
+  def CopyOperation(self, dest, src, filename):
     if not os.path.exists(dest):
       os.mkdir(dest)
     shutil.copyfile(src, (os.path.join(dest, filename)))
 
-  def OrganiseDir(self, path):
-    #This function will get and display all files in the directory
-    #this function also organize entire files
-    print("+ " + (os.path.basename(path)))
-    lists = []
-    for each in os.scandir(path):
+
+  def OrganiseDir(self):
+    nonTouched = []
+    for each in os.scandir(self.src):
       if each.is_file():
-        print("\t- " + (each.name))
         list = os.path.splitext(each)
         ext = list[1].lower()
         filename = each.name
         if (ext in self.computed) and filename not in self.ignore:
-          self.OrganiseStructure(os.path.join(self.dest, self.computed[ext]),
+          self.CopyOperation(os.path.join(self.dest, self.computed[ext]),
                                  each.path, filename)
         else:
-          lists.append(ext)
-    print("\n\nBelow files are not Organized . Either because Patterns not found for the following extensions or They are included in .ignore\n")
-    print(*lists)
-    print("So they are not organized")
-
-
-test = Filo("/home/kaliabu/Desktop/code/py/FILO/Test",
-            "",
-            ignore=["cute.png"])
+          nonTouched.append(ext)
+    return nonTouched
 
 
 
-path_check()
-
-def path_check(path, bool):
-    if not os.path.exists(path):
-      if bool == False:
-        print("\nPath not found. \nCheck if the passed path exists \n")
-        sys.exit(1)
-      else:
-        print(
-            "the Path you requested is not found ?\n do you want to create Path directory?(y/n)"
-        )
-        choice = input(":")
-        if choice == "y":
-          os.makedirs(path)
-          print("Directory Created")
-        else:
-          print("Directory not created")
-          print("Exixting program")
-          sys.exit(1)
-    return path
+test = Filo("","",ignore=["cute.png"])
+test.OrganiseDir()
 
